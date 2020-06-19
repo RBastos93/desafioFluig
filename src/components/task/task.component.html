@@ -1,0 +1,29 @@
+<form #f="ngForm" (ngSubmit)="patchTask(f)">
+    <li class="list-group-item d-flex bd-highlight align-items-center" [hidden]="edit">
+        <span class="mr-auto">{{task.name}}</span>
+        <div class="bd-highlight mr-1">
+            <app-task-status [taskStatus]="taskStatus" (selectedStatus)="taskStatusHandler($event, f)"></app-task-status>
+        </div>
+        <a class="badge badge-warning badge-pill bd-highlight mr-1" (click)="edit = !edit; f.controls.name.setValue(this.task.name)">
+            <i class="fa fa-pencil"></i>
+        </a>
+        <a class="badge badge-danger badge-pill bd-highlight" (click)="deleteTask()">
+            <i class="fa fa-trash"></i>
+        </a>
+    </li>
+    <li class="list-group-item d-flex bd-highlight align-items-center" [hidden]="!edit">
+        <div class="input-group">
+            <input type="text" name="name" id="name" class="form-control" ngModel #name="ngModel">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-check"></i>
+                </button>
+            </div>
+            <div class="input-group-append">
+                <button type="button" class="btn btn-danger" (click)="edit = !edit">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </li>
+</form>

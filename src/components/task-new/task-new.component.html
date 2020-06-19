@@ -1,0 +1,22 @@
+<form #f="ngForm" (ngSubmit)="addTask(f)">
+    <a class="list-group-item list-group-item-action" [hidden]="add" (click)="add = !add">
+        <div class="d-flex w-100 justify-content-between">
+            <span>+ Adicionar</span>
+        </div>
+    </a>
+    <li class="list-group-item d-flex bd-highlight align-items-center" [hidden]="!add">
+        <div class="input-group">
+            <input type="text" name="name" id="name" class="form-control" ngModel #name="ngModel">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-check"></i>
+                </button>
+            </div>
+            <div class="input-group-append">
+                <button type="button" class="btn btn-danger" (click)="add = !add; f.controls.name.reset()">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </li>
+</form>

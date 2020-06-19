@@ -1,0 +1,8 @@
+{
+    "/tasks/api/*": {
+      "target": "http://tasks-homolog.k8s-platform-dev-us-east-1.fluig.io",
+      "changeOrigin": true,
+      "secure": false,
+      "logLevel": "debug"
+    }
+}

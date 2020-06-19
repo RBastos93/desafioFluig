@@ -1,0 +1,45 @@
+<form #f="ngForm" (ngSubmit)="addList(f)">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-1">
+                <a
+                    class="badge badge-pill badge-secondary mt-2"
+                    href="#collapseListInfo"
+                    (click)="collapse(f)"
+                    data-toggle="collapse"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="collapseListInfo"
+                >
+                    <i class="fa" [ngClass]="{'fa-caret-up': collapsed, 'fa-caret-down': !collapsed}"></i>
+                </a>
+            </div>
+            <div class="col-md-11">
+                <div class="input-group">
+                    <input type="text" name="name" id="name" class="form-control" ngModel #name="ngModel" placeholder="Criar uma nova lista...">
+                    <div class="input-group-append" *ngIf="!collapsed">
+                        <button type="submit" class="btn btn-primary">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="collapse" id="collapseListInfo">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="description">Descrição</label>
+                <textarea class="form-control" name="description" id="description" ngModel #description="ngModel" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary">Adicionar</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-light" data-toggle="collapse" data-target="#collapseListInfo" (click)="collapse(f)">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
