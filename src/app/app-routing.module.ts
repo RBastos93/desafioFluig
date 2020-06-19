@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 
 const routes: Routes = [
+  { path: '',   redirectTo: '/login', pathMatch: 'full' },
   {
     path: 'login',
     component: LoginComponent
